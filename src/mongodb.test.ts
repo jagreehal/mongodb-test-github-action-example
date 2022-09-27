@@ -1,5 +1,5 @@
 import { connect, disconnect } from 'mongoose';
-import { User } from './models/user';
+import { User } from './models/User';
 
 describe('User Model Test', () => {
   beforeAll(async () => {
