@@ -21,4 +21,9 @@ describe('User Model Test', () => {
     const savedUser = await User.findOne({ name: 'Bill' });
     expect(savedUser.name).toBe('Bill');
   });
+
+  it('checked seeded user', async () => {
+    const savedUser = await User.findOne({ name: 'Seeded' });
+    expect(savedUser.name).toBe('Seeded');
+  });
 });
