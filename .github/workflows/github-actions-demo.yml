@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         mongodb-version: [4.4]
 
     steps:
@@ -24,8 +24,14 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - run: npm test
+      - name: Run TypeScript code with ts-node
+        run: npx ts-node src/seed-db.ts
+
+      - name: Run Tests
+        run: npm test
+
         env:
           CI: true
